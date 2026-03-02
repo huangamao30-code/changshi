@@ -25,12 +25,14 @@ jobs:
 
       - name: Build
         working-directory: nocode
+        env:
+          PUBLIC_PATH: /changshi
         run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: nocode/dist
+          path: nocode/build
 
   deploy:
     needs: build
